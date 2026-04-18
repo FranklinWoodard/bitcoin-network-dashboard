@@ -2,7 +2,7 @@
 
 A full-stack, educational Bitcoin network dashboard displaying live blockchain data. Built to inform skeptics — not hype Bitcoin, but show what makes it fundamentally different from every financial system that came before it.
 
-![Bitcoin Network Dashboard](docs/screenshot.png)
+<img width="1125" height="467" alt="docs:screenshot" src="https://github.com/user-attachments/assets/e65ed44f-34b6-470e-8287-732615fee714" />
 
 ## What It Does
 
