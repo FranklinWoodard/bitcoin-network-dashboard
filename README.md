@@ -1,18 +1,53 @@
-# Bitcoin Forecast Dashboard
+# Bitcoin Network Dashboard
 
-Interactive single-page app showing live Bitcoin price, historical performance, historical volatility, sumulative returns, and a user-defined Geometric Brownian Motion price path simulator.
+A full-stack, educational Bitcoin network dashboard displaying live blockchain data. Built to inform skeptics — not hype Bitcoin, but show what makes it fundamentally different from every financial system that came before it.
 
-## Features 
-- Daily-updated Bitcoin metrics (CoinGecko API)
-- Historical volatility & returns with selectable timeframes
-- Geometric Brownian Motion price path simulation based on user inputs
-- Fully responsive (moile friendly)
-- Build with React + FastAPI + Plotly.js + SQLite cache
+![Bitcoin Network Dashboard](docs/screenshot.png)
+
+## What It Does
+
+Six live metrics pulled from the Bitcoin blockchain update in real time: network hashrate, mining difficulty, next difficulty adjustment, block height, node count, and circulating supply. Each metric is paired with educational tooltips explaining the core concepts behind Bitcoin's security model — Proof of Work, Consensus, and Immutability.
 
 ## Tech Stack
-- Frontent: React 18 + Vite + Plotly.js + TailwindCSS
-- Backend: FastAPI (Python) + Pandas + SQLite
-- Deployment: Vercel
 
-## Project Status
-Currently in planning/analysis phase
+- **Frontend:** React 19 + Vite
+- **Backend:** FastAPI (Python)
+- **Charts:** Plotly
+- **Data:** Mempool.space, Blockchain.info, Bitnodes.io, CoinGecko (free public APIs)
+
+## Architecture
+
+The React frontend never calls Bitcoin APIs directly. All data flows through the FastAPI backend, which acts as a proxy and caching layer. This design allows a future swap to a self-hosted Bitcoin node with zero frontend changes required.
+
+## Running Locally
+
+**Requirements:** Python 3.12+, Node.js 18+
+
+**Backend:**
+```bash
+cd backend
+python3.12 -m venv venv
+source venv/bin/activate
+pip install fastapi uvicorn httpx
+uvicorn main:app --reload
+```
+
+Backend runs at `http://127.0.0.1:8000`
+
+**Frontend:**
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs at `http://localhost:5173`
+
+## Roadmap
+
+- [ ] Educational tooltips (Proof of Work, Consensus, Immutability)
+- [ ] Block height pulse animation on new block detection
+- [ ] DCA Investment Calculator (Geometric Brownian Motion model)
+- [ ] Bitcoin in the Wild — real-world sovereignty stories
+- [ ] Light mode toggle
+- [ ] Deployment (Vercel + Render)
